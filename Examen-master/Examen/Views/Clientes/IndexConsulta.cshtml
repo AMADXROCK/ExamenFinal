@@ -1,0 +1,68 @@
+﻿@model List<Examen.Models.RConsulta>
+<link href="~/EstiloCreado.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "IndexConsulta";
+}
+
+<h2><b>IndexConsulta</b></h2>
+
+
+<table class="table table-bordered table-striped text-center ">
+    
+        <tr>
+            <th >
+                <h4 ><b>Clave Asociado</b></h4>
+            </th>
+            <th >                <h4><b>Apellido Paterno</b></h4>
+            </th>
+            <th >
+                <h4><b>Apellido Materno</b></h4>
+            </th>
+            <th >
+                <h4><b>Nombre</b></h4>
+            </th>
+            <th >
+                <h4><b>Telefono</b></h4>
+            </th>
+            <th >
+                <h4><b>Direccion</b></h4>
+            </th>
+            <th >
+                <h4><b>Puesto</b></h4>
+            </th>
+            <th>
+                <h4><b>Nombre Comercial</b></h4>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDAsociado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Puesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreComercial)
+                </td>
+            </tr>
+        }
+</table>
+
+<a href="~/Clientes">Clientes</a>

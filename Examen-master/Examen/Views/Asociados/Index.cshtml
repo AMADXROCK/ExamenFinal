@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Examen.Models.Asociados>
+<link href="~/EstiloCreado.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Asociados</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Registro", "Create")
+</p>
+<table class="table table-bordered table-striped text-center ">
+
+        <tr>
+            <th>
+                <h4><b>Nombre</b></h4>
+            </th>
+            <th>
+                <h4><b>Apellido Paterno</b></h4>
+            </th>
+            <th>
+                <h4><b>Apellido Materno</b></h4>
+            </th>
+            <th>
+                <h4><b>Telefono</b></h4>
+            </th>
+            <th>
+                <h4><b>Direccion</b></h4>
+            </th>
+            <th>
+                <h4><b>Puesto</b></h4>
+            </th>
+            <th>
+                <h4><b>Razon Social</b></h4>
+            </th>
+            <td></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Puesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clientes.RazonSocial)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDAsociado }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IDAsociado }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IDAsociado })
+                </td>
+            </tr>
+        }
+</table>
+
+<a href="~/Clientes">Clientes</a>

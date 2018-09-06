@@ -1,0 +1,64 @@
+﻿@model Examen.Models.Clientes
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas seguro de eliminar este registro?</h3>
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RazonSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazonSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreComercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreComercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RFC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RFC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CURP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CURP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a Inicio", "Index")
+        </div>
+    }
+</div>
