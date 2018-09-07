@@ -52,8 +52,16 @@ namespace Examen.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Asociados.Add(asociados);
-                db.SaveChanges();
+                try
+                {
+                    db.Asociados.Add(asociados);
+                    db.SaveChanges();
+                }
+                catch(ExecutionEngineException e)
+                {
+
+                }
+                
                 return RedirectToAction("Index");
             }
 
@@ -86,8 +94,16 @@ namespace Examen.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(asociados).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    db.Entry(asociados).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch(ExecutionEngineException e)
+                {
+
+                }
+                
                 return RedirectToAction("Index");
             }
             ViewBag.IDCliente = new SelectList(db.Clientes, "IDCliente", "RazonSocial", asociados.IDCliente);

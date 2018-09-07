@@ -22,10 +22,50 @@ namespace Examen.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
+            //CONDICIONES PARA ENTRADA EN MODELO ASOCIADOS
+            modelBuilder.Entity<Clientes>()
+                    .Property(p => p.RazonSocial)
+                    .HasMaxLength(100).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Clientes>()
+                    .Property(p => p.NombreComercial)
+                    .HasMaxLength(120).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Clientes>()
+                     .Property(p => p.RFC)
+                     .HasMaxLength(13).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Clientes>()
+                    .Property(p => p.CURP)
+                    .HasMaxLength(18).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Clientes>()
+                     .Property(p => p.Direccion)
+                     .HasMaxLength(200).IsRequired().HasColumnType("varchar");
+
+            //CONDICIONES PARA ENTRADA EN MODELO ASOCIADOS
+            modelBuilder.Entity<Asociados>()
+                    .Property(p => p.ApellidoPaterno)
+                    .HasMaxLength(30).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Asociados>()
+                    .Property(p => p.ApellidoMaterno)
+                    .HasMaxLength(30).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Asociados>()
+                     .Property(p => p.Nombre)
+                     .HasMaxLength(50).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Asociados>()
+                    .Property(p => p.Telefono)
+                    .HasMaxLength(10).IsRequired().HasColumnType("int");
+            modelBuilder.Entity<Asociados>()
+                     .Property(p => p.Direccion)
+                     .HasMaxLength(200).IsRequired().HasColumnType("varchar");
+            modelBuilder.Entity<Asociados>()
+                     .Property(p => p.Puesto)
+                     .HasMaxLength(40).IsRequired().HasColumnType("varchar");
+
             throw new UnintentionalCodeFirstException();
+
         }
     
         public virtual DbSet<Asociados> Asociados { get; set; }
+        
         public virtual DbSet<Clientes> Clientes { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
